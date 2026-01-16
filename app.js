@@ -49,28 +49,19 @@ function buildPriceSchedule(pv, i, n, pmt) {
 // A ideia: buscar os últimos N valores e pegar o mais recente.
 // OBS: Dependendo do navegador/ambiente, pode haver CORS. Se acontecer, a solução é usar um "proxy serverless"
 // no Netlify (te mostro abaixo se precisar).
-const BCB_SERIES_URL = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.25471/dados/ultimos/24?formato=csv";
+const BCB_SERIES_URL = "/.netlify/functions/bcb-rate";
 
 async function fetchBCBLatestRate() {
   const res = await fetch(BCB_SERIES_URL, { cache: "no-store" });
-  if (!res.ok) throw new Error("Falha ao buscar taxa do Banco Central");
-  const csv = await res.text();
+  if (!res.ok) throw new Error("Falha ao buscar taxa (function)");
+  const data = await res.json();
 
-  // CSV típico:
-  // data;valor
-  // 01/10/2010;xx.xx
-  // ...
-  const lines = csv.trim().split("\n").slice(1);
-  if (!lines.length) throw new Error("CSV vazio");
-  const last = lines[lines.length - 1].split(";");
-  const dateStr = last[0];
-  const valueStr = last[1];
-
-  const taxa = parseBRNumber(valueStr);
+  const taxa = parseBRNumber(data.valueStr);
   if (!Number.isFinite(taxa)) throw new Error("Taxa inválida");
 
-  return { taxa, dateStr };
+  return { taxa, dateStr: data.dateStr };
 }
+
 
 // Converte taxa anual (%) para mensal (%) se necessário.
 // Como a série é "taxa média mensal", muitas vezes o dado já é apresentado como taxa anual média do mês ou taxa mensal.
