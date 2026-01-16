@@ -179,4 +179,65 @@ input:focus, select:focus{border-color: rgba(56,189,248,.55); box-shadow: 0 0 0 
   .form .grid{grid-template-columns: 1fr}
   .kpis{grid-template-columns:1fr}
 }
+/* =========================
+   Mobile polish (celular)
+   ========================= */
+
+@media (max-width: 600px){
+  .topbar__inner{
+    gap: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav{
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .nav__link{
+    padding: 10px 12px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.03);
+  }
+
+  .hero{
+    padding: 18px 0 12px;
+    gap: 14px;
+  }
+
+  .hero__text h1{
+    font-size: 28px;
+    line-height: 1.15;
+  }
+
+  .pill{
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .card{
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .actions{
+    flex-direction: column;
+  }
+
+  .btn{
+    width: 100%;
+  }
+
+  .tableWrap{
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table{
+    min-width: 760px; /* dá espaço e força scroll horizontal */
+  }
+}
+
 
