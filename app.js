@@ -97,7 +97,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     $("taxaMes").value = taxaMesPct.toFixed(2).replace(".", ",");
     $("rateDot").style.background = "var(--accent)";
     $("rateDot").style.boxShadow = "0 0 0 4px rgba(34,197,94,.10)";
-    $("rateStatus").textContent = `Taxa de referência carregada (último dado: ${dateStr}).`;
+    $("rateStatus").textContent =
+  `Taxa de referência carregada (média de mercado, PF – aquisição de veículos). ` +
+  `Bancos podem variar. (Último dado: ${dateStr})`;
   } catch (e) {
     $("rateDot").style.background = "var(--danger)";
     $("rateDot").style.boxShadow = "0 0 0 4px rgba(239,68,68,.10)";
