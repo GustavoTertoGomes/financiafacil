@@ -5,9 +5,18 @@ const $ = (id) => document.getElementById(id);
 
 function parseBRNumber(v) {
   if (typeof v !== "string") return Number(v);
-  // aceita "12.345,67" ou "12345.67" ou "12345"
-  const cleaned = v.trim().replace(/\./g, "").replace(",", ".");
-  const n = Number(cleaned);
+
+  const s = v.trim();
+
+  // Se tiver vírgula, é padrão BR: "1.234,56"
+  if (s.includes(",")) {
+    const cleaned = s.replace(/\./g, "").replace(",", ".");
+    const n = Number(cleaned);
+    return Number.isFinite(n) ? n : NaN;
+  }
+
+  // Se NÃO tiver vírgula, assume padrão com ponto decimal: "1.99"
+  const n = Number(s);
   return Number.isFinite(n) ? n : NaN;
 }
 
