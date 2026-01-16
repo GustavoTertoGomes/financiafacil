@@ -97,13 +97,11 @@ window.addEventListener("DOMContentLoaded", async () => {
     $("taxaMes").value = taxaMesPct.toFixed(2).replace(".", ",");
     $("rateDot").style.background = "var(--accent)";
     $("rateDot").style.boxShadow = "0 0 0 4px rgba(34,197,94,.10)";
-    $("rateStatus").textContent =
-  `Taxa de referência carregada (média de mercado, PF – aquisição de veículos). ` +
-  `Bancos podem variar. (Último dado: ${dateStr})`;
+    $("rateStatus").textContent = `Taxa média (BCB) carregada • ${dateStr}`;
   } catch (e) {
     $("rateDot").style.background = "var(--danger)";
     $("rateDot").style.boxShadow = "0 0 0 4px rgba(239,68,68,.10)";
-    $("rateStatus").textContent = "Não foi possível carregar a taxa automática. Preencha manualmente.";
+    $("rateStatus").textContent = "Taxa do BCB indisponível • use manual";
     // fallback: um valor padrão apenas para não travar
     if (!$("taxaMes").value) $("taxaMes").value = "2,10";
   }
