@@ -69,7 +69,7 @@ async function fetchBCBLatestRate() {
 // - Você pode escolher exibir e usar "taxa ao mês" no input.
 // - Aqui vamos assumir que o valor vindo do BCB está em % ao ano (muito comum em relatórios) e converter para % ao mês efetiva.
 // - Se você notar que o valor está "baixo demais" ou "alto demais", você troca o modo com 1 linha.
-const ASSUMIR_BCB_COMO_AO_ANO = true;
+const ASSUMIR_BCB_COMO_AO_ANO = false;
 
 function anualParaMensalEfetiva(aaPct) {
   const aa = aaPct / 100;
