@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Termos — FinanciaFácil</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html"><span class="brand__logo">%</span><span class="brand__name">FinanciaFácil</span></a>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Calculadora</a>
+        <a href="sobre.html" class="nav__link">Sobre</a>
+        <a href="contato.html" class="nav__link">Contato</a>
+        <a href="termos.html" class="nav__link nav__link--active">Termos</a>
+        <a href="privacidade.html" class="nav__link">Privacidade</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <div class="card">
+      <h1>Termos de Uso</h1>
+      <p class="muted">
+        Este site fornece simulações e estimativas. Não garantimos aprovação, taxa final ou condições de financiamento.
+        Valores podem variar por banco, perfil, tarifas, seguros e impostos.
+      </p>
+      <p class="muted">
+        Ao usar este site, você concorda que a responsabilidade pela decisão financeira é do usuário.
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="muted">© <span id="year"></span> FinanciaFácil</span>
+      <div class="footer__links">
+        <a href="privacidade.html">Privacidade</a>
+        <a href="termos.html">Termos</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
+

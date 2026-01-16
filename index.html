@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora de Financiamento de Veículo (Carro e Moto)</title>
+  <meta name="description" content="Calcule parcelas, juros e total pago em financiamentos de carro e moto. Taxa média baseada em dados do Banco Central (referência de mercado)." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__logo">%</span>
+        <span class="brand__name">FinanciaFácil</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html" class="nav__link nav__link--active">Calculadora</a>
+        <a href="sobre.html" class="nav__link">Sobre</a>
+        <a href="contato.html" class="nav__link">Contato</a>
+        <a href="termos.html" class="nav__link">Termos</a>
+        <a href="privacidade.html" class="nav__link">Privacidade</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero__text">
+        <h1>Calcule seu financiamento de <span class="accent">carro</span> ou <span class="accent">moto</span></h1>
+        <p class="muted">
+          Simule parcelas, juros e total pago usando a <strong>Tabela Price</strong>.
+          A taxa sugerida é baseada na <strong>média de mercado</strong para PF (aquisição de veículos) publicada pelo Banco Central.
+        </p>
+
+        <div class="pill">
+          <span class="dot" id="rateDot" aria-hidden="true"></span>
+          <span id="rateStatus">Carregando taxa de referência…</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="card">
+          <h2 class="card__title">Simulação</h2>
+
+          <form id="calcForm" class="form" autocomplete="off">
+            <div class="grid">
+              <label class="field">
+                <span>Tipo</span>
+                <select id="tipo" required>
+                  <option value="carro">Carro</option>
+                  <option value="moto">Moto</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Valor do veículo (R$)</span>
+                <input id="valorVeiculo" inputmode="decimal" placeholder="Ex: 45000" required />
+              </label>
+
+              <label class="field">
+                <span>Entrada (R$)</span>
+                <input id="entrada" inputmode="decimal" placeholder="Ex: 5000" value="0" />
+              </label>
+
+              <label class="field">
+                <span>Prazo (meses)</span>
+                <input id="prazo" inputmode="numeric" placeholder="Ex: 48" value="48" required />
+              </label>
+
+              <label class="field">
+                <span>Taxa ao mês (%)</span>
+                <input id="taxaMes" inputmode="decimal" placeholder="Ex: 2.10" required />
+                <small class="help">
+                  Preenchemos automaticamente com base no Banco Central (referência). Você pode alterar.
+                </small>
+              </label>
+
+              <label class="field">
+                <span>Sistema</span>
+                <select id="sistema" required>
+                  <option value="price">Tabela Price (parcelas fixas)</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="actions">
+              <button class="btn" type="submit">Calcular</button>
+              <button class="btn btn--ghost" type="button" id="btnLimpar">Limpar</button>
+            </div>
+
+            <div class="note">
+              <strong>Transparência:</strong> esta é uma <em>estimativa</em>. Bancos podem incluir tarifas, seguros e variar taxas conforme perfil.
+            </div>
+          </form>
+        </div>
+
+        <div class="card" id="resultadoCard" hidden>
+          <h2 class="card__title">Resultado</h2>
+
+          <div class="kpis">
+            <div class="kpi">
+              <span class="kpi__label">Parcela estimada</span>
+              <span class="kpi__value" id="kpiParcela">—</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi__label">Total pago</span>
+              <span class="kpi__value" id="kpiTotal">—</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi__label">Juros pagos</span>
+              <span class="kpi__value" id="kpiJuros">—</span>
+            </div>
+          </div>
+
+          <details class="details">
+            <summary>Ver detalhes do cálculo</summary>
+            <div class="details__body">
+              <p class="muted" id="detalhesTexto">—</p>
+              <div class="tableWrap">
+                <table class="table" id="tabela">
+                  <thead>
+                    <tr>
+                      <th>Mês</th>
+                      <th>Parcela</th>
+                      <th>Juros</th>
+                      <th>Amortização</th>
+                      <th>Saldo</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="card">
+        <h2>Como funciona?</h2>
+        <p class="muted">
+          Usamos a <strong>Tabela Price</strong> (parcelas fixas). A taxa sugerida vem de uma série pública do Banco Central para
+          <strong>taxa média de juros de crédito livre</strong> em <strong>aquisição de veículos</strong> (pessoas físicas),
+          como referência de mercado. :contentReference[oaicite:1]{index=1}
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="muted">© <span id="year"></span> FinanciaFácil</span>
+      <div class="footer__links">
+        <a href="privacidade.html">Privacidade</a>
+        <a href="termos.html">Termos</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
