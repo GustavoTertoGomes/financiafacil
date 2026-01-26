@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Financiamento de Moto — Simule parcelas e juros | FinanciaFácil</title>
+  <meta name="description" content="Simule financiamento de moto com Tabela Price. Compare prazo, entrada e taxa ao mês. Estime parcela, juros e total pago." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__logo">%</span>
+        <span class="brand__name">FinanciaFácil</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Calculadora</a>
+        <a href="guia-financiamento.html" class="nav__link">Guia</a>
+        <a href="financiamento-carro.html" class="nav__link">Carro</a>
+        <a href="financiamento-moto.html" class="nav__link nav__link--active">Moto</a>
+        <a href="tabela-price.html" class="nav__link">Tabela Price</a>
+        <a href="sobre.html" class="nav__link">Sobre</a>
+        <a href="contato.html" class="nav__link">Contato</a>
+        <a href="termos.html" class="nav__link">Termos</a>
+        <a href="privacidade.html" class="nav__link">Privacidade</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <div class="card">
+      <h1>Financiamento de moto: como pagar menos e escolher melhor</h1>
+      <p class="muted">
+        Financiar moto parece simples, mas o que pesa de verdade é o <strong>prazo</strong> e a <strong>taxa ao mês</strong>.
+        Com uma boa simulação, você consegue saber se a parcela está justa ou se o total vai sair caro demais.
+      </p>
+
+      <div class="note">
+        <strong>Dica rápida:</strong> se a parcela ficou “barata demais”, geralmente o prazo está longo e os juros vão subir muito no total.
+      </div>
+
+      <h2>O que mais aumenta o custo do financiamento?</h2>
+      <ul class="muted">
+        <li><strong>Taxa ao mês</strong> (principal fator)</li>
+        <li><strong>Prazo longo</strong> (48 ou 60 meses aumenta bastante o total)</li>
+        <li><strong>Pouca entrada</strong> (mais valor financiado = mais juros)</li>
+      </ul>
+
+      <h2>3 estratégias que funcionam</h2>
+      <ol class="muted">
+        <li><strong>Faça entrada</strong> (qualquer valor já reduz juros)</li>
+        <li><strong>Prefira prazo menor</strong> se a parcela couber</li>
+        <li><strong>Compare a taxa</strong> antes de fechar</li>
+      </ol>
+
+      <div class="actions">
+        <a class="btn" href="index.html">Simular agora</a>
+        <a class="btn btn--ghost" href="tabela-price.html">Entender a Price</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="muted">© <span id="year"></span> FinanciaFácil</span>
+      <div class="footer__links">
+        <a href="privacidade.html">Privacidade</a>
+        <a href="termos.html">Termos</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
+

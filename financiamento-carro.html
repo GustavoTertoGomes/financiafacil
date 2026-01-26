@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Financiamento de Carro — Simule parcelas e juros | FinanciaFácil</title>
+  <meta name="description" content="Simule financiamento de carro com Tabela Price. Entenda entrada, prazo, juros e total pago. Compare cenários e reduza o custo final." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__logo">%</span>
+        <span class="brand__name">FinanciaFácil</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Calculadora</a>
+        <a href="guia-financiamento.html" class="nav__link">Guia</a>
+        <a href="financiamento-carro.html" class="nav__link nav__link--active">Carro</a>
+        <a href="financiamento-moto.html" class="nav__link">Moto</a>
+        <a href="tabela-price.html" class="nav__link">Tabela Price</a>
+        <a href="sobre.html" class="nav__link">Sobre</a>
+        <a href="contato.html" class="nav__link">Contato</a>
+        <a href="termos.html" class="nav__link">Termos</a>
+        <a href="privacidade.html" class="nav__link">Privacidade</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <div class="card">
+      <h1>Financiamento de carro: como estimar parcela e total pago</h1>
+      <p class="muted">
+        Se você está pensando em financiar um carro, a melhor forma de não cair em juros altos é simular antes.
+        Aqui você entende o básico e depois simula na calculadora.
+      </p>
+
+      <div class="note">
+        <strong>Regra simples:</strong> quanto maior a entrada e menor o prazo, menor o total de juros.
+      </div>
+
+      <h2>O que define sua parcela?</h2>
+      <ul class="muted">
+        <li><strong>Valor financiado:</strong> valor do carro − entrada</li>
+        <li><strong>Prazo:</strong> número de meses</li>
+        <li><strong>Taxa ao mês:</strong> principal fator do custo final</li>
+      </ul>
+
+      <h2>Prazo longo vale a pena?</h2>
+      <p class="muted">
+        Prazo longo pode ajudar a “caber no bolso”, mas costuma aumentar muito o total pago.
+        O ideal é simular dois cenários (ex.: 36 vs 60 meses) e comparar o total.
+      </p>
+
+      <h2>Como reduzir o custo final</h2>
+      <ol class="muted">
+        <li>Dar <strong>mais entrada</strong></li>
+        <li>Escolher <strong>prazo menor</strong></li>
+        <li>Comparar taxas em bancos diferentes</li>
+        <li>Evitar “empurrar” o prazo só pra baixar parcela</li>
+      </ol>
+
+      <div class="actions">
+        <a class="btn" href="index.html">Simular agora</a>
+        <a class="btn btn--ghost" href="tabela-price.html">Como funciona a Price</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="muted">© <span id="year"></span> FinanciaFácil</span>
+      <div class="footer__links">
+        <a href="privacidade.html">Privacidade</a>
+        <a href="termos.html">Termos</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
+
